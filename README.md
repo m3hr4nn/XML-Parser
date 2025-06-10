@@ -1,4 +1,4 @@
-# WSDL Property Extractor
+# xml_parser (WSDL Property Extractor)
 
 This simple Python script parses an XML or WSDL file and extracts specific `wsdl` property values from elements within a defined XML namespace. It is useful for inspecting service definitions, especially when dealing with custom WSDL interfaces.
 
