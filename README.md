@@ -1,2 +1,3 @@
-# XML-Parser
-trying to find the information inside a WSDL file? use the XML Parser to tidy up your information and maybe easier to put in excel file and reprsent to your team quickly! 
+# Interactive xml_parser script
+* this branch follows the main section
+* the interactive input/output is added to the script as well as printing it on monitor
