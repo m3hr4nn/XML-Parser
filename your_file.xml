@@ -1,0 +1,9 @@
+<root xmlns="http://www.somedomain.com/interface/v1_0">
+    <item name="ServiceA">
+        <property name="wsdl" value="http://example.com/ServiceA.wsdl"/>
+        <property name="timeout" value="30"/>
+    </item>
+    <item name="ServiceB">
+        <property name="wsdl" value="http://example.com/ServiceB.wsdl"/>
+    </item>
+</root>
