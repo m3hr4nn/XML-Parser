@@ -1,36 +1,33 @@
 import xml.etree.ElementTree as ET
 
-
-def extract_wsdl_properties(xml_file):
+def extract_wsdl_properties(xml_file, output_file='wsdl_output.txt'):
     try:
         tree = ET.parse(xml_file)
         root = tree.getroot()
 
-        # Put the namespace you want to 
         namespace = {'ns': 'http://www.somedomain.com/interface/v1_0'}
 
-        # Find all item tags using the namespace
         items = root.findall('.//ns:item', namespaces=namespace)
 
-        for item in items:
-            # Get the name attribute of the item
-            item_name = item.attrib.get('name', 'N/A')
-            # Debugging: Print the item name
-            print(f'Processing item: {item_name}')
+        with open(output_file, 'w') as f:
+            for item in items:
+                item_name = item.attrib.get('name', 'N/A')
+                print(f'Processing item: {item_name}')
+                f.write(f'Processing item: {item_name}\n')
 
-            # Iterate through each property in the item
-            for prop in item.findall('ns:property', namespaces=namespace):
-                if prop.attrib.get('name') == 'wsdl':
-                    wsdl_value = prop.attrib.get('value')
-                    print(f'Item: {item_name}, WSDL: {wsdl_value}')
-                    print('-' * 20)
+                for prop in item.findall('ns:property', namespaces=namespace):
+                    if prop.attrib.get('name') == 'wsdl':
+                        wsdl_value = prop.attrib.get('value')
+                        print(f'Item: {item_name}, WSDL: {wsdl_value}')
+                        print('-' * 20)
+                        f.write(f'Item: {item_name}, WSDL: {wsdl_value}\n')
+                        f.write('-' * 20 + '\n')
 
     except ET.ParseError as e:
         print(f"Error parsing XML: {e}")
     except Exception as e:
         print(f"An error occurred: {e}")
 
-
-# Replace 'your_file.xml' with the path to your WSDL
+# Example usage
 xml_file = 'your_file.xml'
 extract_wsdl_properties(xml_file)
