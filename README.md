@@ -20,6 +20,8 @@ The script expects an XML file with the following structure (simplified):
     </item>
 </interface>
 ```
+_For example your_file.xml in this repository_
+
 ## 🚀 Usage
 1. Make sure Python 3 is installed.
 2. Replace the filename in the script:
@@ -39,10 +41,14 @@ If your XML uses a different namespace, edit this line:
 namespace = {'ns': 'http://www.somedomain.com/interface/v1_0'}
 ```
 ## 🧪 Example Output
+Below data is printed in the output:
 
+```
+--------------
 Processing item: ExampleService
 Item: ExampleService, WSDL: http://example.com/service?wsdl
-
+---------------
+```
 ## 📄 License
 MIT License
 
